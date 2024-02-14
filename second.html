@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exam1</title>
+<style>
+  body {
+    background-image: url('your_background_image.jpg');
+    background-size: 70%;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-weight: bold;
+  }
+  h3 {
+    color: #FFFFFF;
+    background-color: #00CCFF;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 50%;
+    font-family: Verdana;
+    padding: 5px;
+    border-radius: 6px;
+  }
+  table, tr, td {
+    width: 50%;
+    border-style: solid 1px;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 1px;
+    border-radius: 6px;
+    color: #009900;
+    background-color: #F2F2F2;
+    padding: 1px;
+  }
+  #result {
+    font-size: 20px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #submit {
+    color: #FFFFFF;
+    background-color: #00CCFF;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    width: 50%;
+    font-family: Verdana;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+  #result {
+    color: #00CC66;
+    background-color: #FFFFFF;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    width: 50%;
+    font-size: 20px;
+  }
+  body {
+    background-image: url(https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y29sbGVnZSUyMGNhbXB1c3xlbnwwfHwwfHx8MA%3D%3D); 
+    background-size: cover; 
+  }
+</style>
+</head>
+<body>
+    <center>
+<h3>York Admission</h3>
+<form id="admissionForm" onsubmit="return display()">
+  <table>
+    <tr>
+      <td><label for="sname">Student Name:</label></td>
+      <td><input type="text" id="sname" name="sname" pattern="[A-Za-z ]+" required placeholder="Enter the student name"></td>
+    </tr>
+    <tr>
+      <td><label for="phno">Phone Number:</label></td>
+      <td><input type="tel" id="phno" name="phno" pattern="[7-9][0-9]{9}" required placeholder="Enter the phone number"></td>
+    </tr>
+    <tr>
+      <td><label for="aid">Admission Id:</label></td>
+      <td><input type="number" id="aid" name="aid" required placeholder="Enter the admission id"></td>
+    </tr>
+    <tr>
+      <td><label for="admissiondate">Date of Admission:</label></td>
+      <td><input type="date" id="admissiondate" name="admissiondate" required></td>
+    </tr>
+    <tr>
+      <td><label for="deptname">Department Name:</label></td>
+      <td>
+        <select id="deptname" name="deptname" required>
+          <option value="">Select Department..</option>
+          <option value="EEE">EEE</option>
+          <option value="ECE">ECE</option>
+          <option value="CSE">CSE</option>
+          <option value="MECH">MECH</option>
+          <option value="CIVIL">CIVIL</option>
+          <option value="IT">IT</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="preferHostel">Prefer College Hostel:</label></td>
+      <td>
+        <input type="radio" id="yes" name="preferHostel" value="yes" required> <label for="yes">Yes</label>
+        <input type="radio" id="no" name="preferHostel" value="no" required> <label for="no">No</label>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="firstGraduate">First Graduate:</label></td>
+      <td><input type="checkbox" id="firstGraduate" name="firstGraduate"> <label for="firstGraduate">Click if you are first graduate</label></td>
+    </tr>
+  </table>
+  <br>
+  <input type="submit" id="submit" value="CONFIRM ADMISSION">
+</form>
+<div id="result"></div>
+</center>
+<script>
+  function display() {
+    var sname = document.getElementById("sname").value;
+    var phno = document.getElementById("phno").value;
+    var aid = document.getElementById("aid").value;
+    var admissiondate = document.getElementById("admissiondate").value;
+    var deptname = document.getElementById("deptname").value;
+    var preferHostel = document.querySelector('input[name="preferHostel"]:checked').value;
+    var firstGraduate = document.getElementById("firstGraduate").checked;
+
+    var admissionFee = 30000;
+    var tuitionFee = 45000;
+    var hostelFee = 0;
+    if (preferHostel === "yes") {
+      hostelFee = 75000;
+    }
+    var totalCollegeFee = admissionFee + tuitionFee + hostelFee;
+    if (firstGraduate) {
+      totalCollegeFee -= 20000;
+    }
+
+    var resultDiv = document.getElementById("result");
+    resultDiv.innerHTML = "Hi " + sname + ",<br>Your Admission Fee is Rs. " + admissionFee + "<br>Tuition Fee is Rs. " + tuitionFee + "<br>Hostel Fee is Rs. " + hostelFee + "<br>Total College Fee is Rs. " + totalCollegeFee;
+    return false;
+  }
+</script>
+</body>
+</html>
+
+
+

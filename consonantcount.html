@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        
+        let toAlert= ()=>{
+            let val=document.getElementById("enter").value;
+            console.log(val);
+            let conso=/[^aeiou]/gi;
+            let result=val.match(conso);
+            console.log(result);
+            if(result.length==0)
+            {
+                alert("No Consonants");
+            }
+            else if(result.length==4)
+            {
+               alert(`number of consonants ${result.length}`);
+            }
+            }
+    </script>
+</head>
+<body>
+    <form>
+    <label for="enter">Enter the text</label>
+    <br><br>
+    <input type="text" style="border-color: rgb(177, 224, 177);" id="enter" class="enter">
+    <br><br>
+    <button type="submit" style="background-color: rgb(81, 81, 245) " style="border:0px" onclick="toAlert()" name="countbtn"> OK</button>
+    </form>
+</body>
+</html>
